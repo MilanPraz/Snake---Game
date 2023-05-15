@@ -33,7 +33,7 @@ var snakebody=[]
 
 //score
 var score=0;
-var highscore=localStorage.getItem("hscore");
+var highscore=localStorage.getItem("hscore") || 0;
 
 var myscore=document.querySelector(".score")
 var myhighscore=document.querySelector(".highscore");
