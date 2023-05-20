@@ -43,10 +43,45 @@ myhighscore.innerHTML=`HighSocre:${highscore}`;
 
 // gameover display
 var gameoverdisplay= document.querySelector(".gameover");
-var btn=document.querySelector(".btn");
+var btn=document.querySelector(".btn2");
 
 // game state
 var gamestate="live";
+
+
+//movement button 
+const bu=document.getElementById("bu");
+const bd=document.querySelector("#bd");
+const bl=document.querySelector("#bl");
+const br=document.querySelector("#br");
+
+bu.addEventListener("click",()=>{
+    
+    if(moveY!=1)
+    moveX=0;
+    moveY=-1;
+
+});
+bd.addEventListener("click",()=>{
+    if(moveY!=-1){
+        moveX=0;
+        moveY=1;
+    }
+});
+bl.addEventListener("click",()=>{
+    if(moveX!=1){
+        moveX=-1;
+        moveY=0;
+    }
+});
+br.addEventListener("click",()=>{
+    if(moveX!=-1){
+        moveX=1;
+        moveY=0;
+    }
+});
+
+
 /////////////////////////////////////////////////////////////
 
 window.onload=function(){
@@ -55,6 +90,10 @@ window.onload=function(){
    myInterval =setInterval(drawgame,270)
 
    document.addEventListener("keydown",movement)
+
+
+
+
 
 
 }
@@ -161,7 +200,7 @@ function drawgame(){
 
 //snake movement
 function movement(e){
-    if(e.code==="ArrowUp" && moveY!=1){
+    if((e.code==="ArrowUp") && moveY!=1){
         moveX=0;
         moveY=-1;
     }
@@ -180,6 +219,9 @@ function movement(e){
     var move=new Audio("move.mp3")
     move.play();
 }
+
+
+
 
 // random fruit generate
 
